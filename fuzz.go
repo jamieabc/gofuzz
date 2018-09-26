@@ -472,7 +472,8 @@ var unicodeRanges = []charRange{
 // randString makes a random string up to 20 characters long. The returned string
 // may include a variety of (valid) UTF-8 encodings.
 func randString(r *rand.Rand) string {
-	n := r.Intn(20)
+	// TODO: change to settings instead of fixed value
+	n := r.Intn(64)
 	runes := make([]rune, n)
 	for i := range runes {
 		runes[i] = unicodeRanges[r.Intn(len(unicodeRanges))].choose(r)
